@@ -1,0 +1,17 @@
+name: ocr_engine_youdao
+description:
+version: 0.0.1
+author:
+homepage:
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  crypto: any
+  http: any
+  ocr_client:
+    path: ../ocr_client
+
+dev_dependencies:
+  test: ^1.0.0
