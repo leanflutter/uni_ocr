@@ -13,8 +13,7 @@ dependencies:
   
   ocr_engine_youdao:
     path: ../ocr_engine_youdao
-  uni_ocr_client:
-    path: ../uni_ocr_client
+  uni_ocr_client: ^0.0.1
 
 dev_dependencies:
   flutter_test:
