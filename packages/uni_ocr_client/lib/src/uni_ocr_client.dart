@@ -1,10 +1,10 @@
 import 'ocr_engine.dart';
-import 'ocr_client_adapter.dart';
+import 'uni_ocr_client_adapter.dart';
 
-class OcrClient {
-  final OcrClientAdapter adapter;
+class UniOcrClient {
+  final UniOcrClientAdapter adapter;
 
-  OcrClient(this.adapter);
+  UniOcrClient(this.adapter);
 
   OcrEngine get firstEngine {
     return adapter.first;

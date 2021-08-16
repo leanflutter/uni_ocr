@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
-import 'package:ocr_client/ocr_client.dart';
+import 'package:uni_ocr_client/uni_ocr_client.dart';
 
 const String kOcrEngineTypeYoudao = 'youdao';
 

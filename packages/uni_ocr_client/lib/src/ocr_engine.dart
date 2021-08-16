@@ -1,5 +1,5 @@
-import 'models/detect_text_request.dart';
-import 'models/detect_text_response.dart';
+import 'detect_text_request.dart';
+import 'detect_text_response.dart';
 
 class OcrEngineConfig {
   final String identifier;

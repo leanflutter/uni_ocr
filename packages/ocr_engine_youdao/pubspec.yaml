@@ -10,8 +10,8 @@ environment:
 dependencies:
   crypto: any
   http: any
-  ocr_client:
-    path: ../ocr_client
+  uni_ocr_client:
+    path: ../uni_ocr_client
 
 dev_dependencies:
   test: ^1.0.0

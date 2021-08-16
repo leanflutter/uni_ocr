@@ -1,8 +1,8 @@
-class OcrClientError implements Exception {
+class UniOcrClientError implements Exception {
   final String code;
   final String message;
 
-  OcrClientError({
+  UniOcrClientError({
     this.code,
     this.message,
   });

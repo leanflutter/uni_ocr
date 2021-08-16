@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
 
-import 'package:ocr_client/ocr_client.dart';
+import 'package:uni_ocr_client/uni_ocr_client.dart';
 
 void main() {
   test('adds one to input values', () {
-    final client = OcrClient(DefaultOcrClientAdapter([]));
+    final client = UniOcrClient(DefaultUniOcrClientAdapter([]));
     client.firstEngine.detectText(DetectTextRequest());
   });
 }

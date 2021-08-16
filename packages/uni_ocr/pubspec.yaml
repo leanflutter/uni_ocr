@@ -11,10 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
   
-  ocr_client:
-    path: ../ocr_client
   ocr_engine_youdao:
     path: ../ocr_engine_youdao
+  uni_ocr_client:
+    path: ../uni_ocr_client
 
 dev_dependencies:
   flutter_test:

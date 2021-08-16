@@ -1,9 +1,9 @@
 import 'ocr_engine.dart';
 
-class DefaultOcrClientAdapter extends OcrClientAdapter {
+class DefaultUniOcrClientAdapter extends UniOcrClientAdapter {
   final List<OcrEngine> engines;
 
-  DefaultOcrClientAdapter(this.engines);
+  DefaultUniOcrClientAdapter(this.engines);
 
   OcrEngine get first {
     return engines.first;
@@ -14,7 +14,7 @@ class DefaultOcrClientAdapter extends OcrClientAdapter {
   }
 }
 
-abstract class OcrClientAdapter {
+abstract class UniOcrClientAdapter {
   OcrEngine get first;
   OcrEngine use(String identifier);
 }
