@@ -1,16 +1,15 @@
-name: uni_ocr
+name: ocr_engine_tesseract
 description:
 version: 0.0.1
+author:
 homepage:
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  ocr_engine_tesseract:
-    path: ../ocr_engine_tesseract
-  ocr_engine_youdao:
-    path: ../ocr_engine_youdao
+  crypto: any
+  http: any
   uni_ocr_client: ^0.0.1
 
 dev_dependencies:
