@@ -15,10 +15,14 @@ class TesseractOcrEngine extends OcrEngine {
   Future<DetectTextResponse> detectText(DetectTextRequest request) async {
     DetectTextResponse detectTextResponse = DetectTextResponse();
     String ocrOutputPath = request.imagePath.replaceAll(".png", ".txt");
-    ProcessResult processResult = Process.runSync('tesseract', [
-      request.imagePath,
-      ocrOutputPath.replaceAll('.txt', ''),
-    ]);
+    ProcessResult processResult = Process.runSync(
+      'tesseract',
+      [
+        request.imagePath,
+        ocrOutputPath.replaceAll('.txt', ''),
+      ],
+      runInShell: true,
+    );
     if (processResult.exitCode == 0) {
       File file = File(ocrOutputPath);
       detectTextResponse.text = file.readAsStringSync();
