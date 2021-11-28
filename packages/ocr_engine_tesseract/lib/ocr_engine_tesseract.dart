@@ -1,4 +1,4 @@
-library translation_engine_tesseract;
+library ocr_engine_tesseract;
 
 import 'dart:io';
 

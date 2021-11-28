@@ -1,8 +1,7 @@
 name: ocr_engine_tesseract
-description:
+description: ''
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/biyidev/uni_ocr
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
