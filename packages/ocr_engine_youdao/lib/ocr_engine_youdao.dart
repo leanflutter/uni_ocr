@@ -1,4 +1,4 @@
-library translation_engine_youdao;
+library ocr_engine_youdao;
 
 import 'dart:convert';
 
@@ -43,7 +43,7 @@ class YoudaoOcrEngine extends OcrEngine {
           '${base64Image.substring(0, 10)}${base64Image.length}${base64Image.substring(base64Image.length - 10)}';
 
     final curtime = (DateTime.now().millisecondsSinceEpoch ~/ 1000);
-    final salt = _md5("translation_engine_youdao");
+    final salt = _md5("ocr_engine_youdao");
     final sign =
         _sha256('$_optionAppKey$input$salt${curtime}$_optionAppSecret');
 
