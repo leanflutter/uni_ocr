@@ -7,8 +7,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  ocr_engine_tesseract:
-    path: ../ocr_engine_tesseract
+  ocr_engine_builtin:
+    path: ../ocr_engine_builtin
   ocr_engine_youdao:
     path: ../ocr_engine_youdao
   uni_ocr_client: ^0.0.1
