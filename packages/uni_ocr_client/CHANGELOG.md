@@ -1,3 +1,7 @@
-## [0.0.1] - 2021-08-16
+## 0.0.2
 
-* Initial release.
+* `OcrEngine` add `isSupportedOnCurrentPlatform` attribute.
+
+## 0.0.1
+
+* First release.
