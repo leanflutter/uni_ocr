@@ -50,9 +50,10 @@ abstract class OcrEngine {
   String get name => config.name;
   Map<String, dynamic> get option => config.option;
   bool get disabled => config.disabled ?? false;
-  bool get isSupportedOnCurrentPlatform => true;
 
   OcrEngine(this.config);
+
+  Future<bool> isSupportedOnCurrentPlatform() => Future.value(true);
 
   Future<DetectTextResponse> detectText(DetectTextRequest request);
 

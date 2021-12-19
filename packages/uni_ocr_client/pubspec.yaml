@@ -1,6 +1,6 @@
 name: uni_ocr_client
 description: A universal ocr client.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/biyidev/uni_ocr/tree/master/packages/uni_ocr_client
 
 environment:
