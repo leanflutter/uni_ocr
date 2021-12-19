@@ -1,7 +1,7 @@
 name: ocr_engine_youdao
 description: ''
 version: 0.0.1
-homepage: https://github.com/biyidev/uni_ocr
+homepage: https://github.com/biyidev/uni_ocr/tree/master/packages/ocr_engine_youdao
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -9,7 +9,7 @@ environment:
 dependencies:
   crypto: any
   http: any
-  uni_ocr_client: ^0.0.1
+  uni_ocr_client: ^0.0.3
 
 dev_dependencies:
   test: ^1.0.0
