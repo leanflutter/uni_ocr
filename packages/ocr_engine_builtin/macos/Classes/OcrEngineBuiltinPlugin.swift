@@ -11,11 +11,22 @@ public class OcrEngineBuiltinPlugin: NSObject, FlutterPlugin {
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
+        case "isSupportedOnCurrentPlatform":
+            isSupportedOnCurrentPlatform(call, result: result)
+            break
         case "detectText":
             detectText(call, result: result)
             break
         default:
             result(FlutterMethodNotImplemented)
+        }
+    }
+    
+    public func isSupportedOnCurrentPlatform(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        if #available(macOS 10.16, *) {
+            result(true)
+        } else {
+            result(false)
         }
     }
     

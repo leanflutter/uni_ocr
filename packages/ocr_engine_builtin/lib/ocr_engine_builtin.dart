@@ -1,7 +1,5 @@
 library ocr_engine_builtin;
 
-import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
@@ -16,6 +14,11 @@ class BuiltInOcrEngine extends OcrEngine {
 
   @override
   String get type => kOcrEngineTypeBuiltIn;
+
+  @override
+  Future<bool> isSupportedOnCurrentPlatform() async {
+    return await _channel.invokeMethod('isSupportedOnCurrentPlatform');
+  }
 
   @override
   Future<DetectTextResponse> detectText(DetectTextRequest request) async {
