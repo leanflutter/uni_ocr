@@ -11,7 +11,7 @@ dependencies:
     path: ../ocr_engine_builtin
   ocr_engine_youdao:
     path: ../ocr_engine_youdao
-  uni_ocr_client: ^0.0.1
+  uni_ocr_client: ^0.0.3
 
 dev_dependencies:
   test: ^1.0.0
