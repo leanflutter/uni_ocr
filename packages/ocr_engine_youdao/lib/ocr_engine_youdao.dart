@@ -33,8 +33,9 @@ class YoudaoOcrEngine extends OcrEngine {
   String get _optionAppSecret => option[_kEngineOptionKeyAppSecret];
 
   @override
-  Future<DetectTextResponse> detectText(DetectTextRequest request) async {
-    DetectTextResponse detectTextResponse = DetectTextResponse();
+  Future<RecognizeTextResponse> recognizeText(
+      RecognizeTextRequest request) async {
+    RecognizeTextResponse recognizeTextResponse = RecognizeTextResponse();
 
     String base64Image = request.getBase64Image();
     String input = base64Image;
@@ -70,11 +71,11 @@ class YoudaoOcrEngine extends OcrEngine {
     if (data['Result'] != null) {
       var lines = data['Result']['regions'][0]['lines'];
       if (lines != null) {
-        detectTextResponse.text =
+        recognizeTextResponse.text =
             (lines as List).map((e) => e['text']).toList().join(' ');
       }
     }
 
-    return detectTextResponse;
+    return recognizeTextResponse;
   }
 }

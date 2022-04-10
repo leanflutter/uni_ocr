@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
 
   bool _isAccessAllowed = false;
   CapturedData _lastCapturedData;
-  DetectTextResponse _detectTextResponse;
+  RecognizeTextResponse _recognizeTextResponse;
 
   @override
   void initState() {
@@ -49,10 +49,10 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
 
     if (_lastCapturedData != null) {
-      DetectTextRequest request = DetectTextRequest(
+      RecognizeTextRequest request = RecognizeTextRequest(
         imagePath: _lastCapturedData?.imagePath,
       );
-      _detectTextResponse = await _builtInOcrEngine.detectText(request);
+      _recognizeTextResponse = await _builtInOcrEngine.recognizeText(request);
       setState(() {});
     } else {
       // ignore: avoid_print
@@ -97,11 +97,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        if (_detectTextResponse != null)
+        if (_recognizeTextResponse != null)
           Container(
             margin: const EdgeInsets.only(top: 20),
             child: Text(
-              _detectTextResponse.text ?? '',
+              _recognizeTextResponse.text ?? '',
             ),
           ),
         if (_lastCapturedData != null && _lastCapturedData?.imagePath != null)

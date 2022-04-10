@@ -14,8 +14,8 @@ public class OcrEngineBuiltinPlugin: NSObject, FlutterPlugin {
         case "isSupportedOnCurrentPlatform":
             isSupportedOnCurrentPlatform(call, result: result)
             break
-        case "detectText":
-            detectText(call, result: result)
+        case "recognizeText":
+            recognizeText(call, result: result)
             break
         default:
             result(FlutterMethodNotImplemented)
@@ -30,7 +30,7 @@ public class OcrEngineBuiltinPlugin: NSObject, FlutterPlugin {
         }
     }
     
-    public func detectText(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    public func recognizeText(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let args:[String: Any] = call.arguments as! [String: Any]
         let base64Image: String =  args["base64Image"] as! String;
         
@@ -47,12 +47,43 @@ public class OcrEngineBuiltinPlugin: NSObject, FlutterPlugin {
                 DispatchQueue.main.async {
                     let observations: [VNRecognizedTextObservation] = request.results as? [VNRecognizedTextObservation] ?? []
                     
-                    var text: String = ""
+                    var recognitions: Array<NSDictionary> = []
                     for observation in observations {
-                        text.append(observation.topCandidates(1)[0].string)
-                        text.append(" ")
+                        // Find the top observation.
+                        let candidate: VNRecognizedText = observation.topCandidates(1).first!
+                        
+                        // Find the bounding-box observation for the string range.
+                        let stringRange = candidate.string.startIndex..<candidate.string.endIndex
+                        let boxObservation = try? candidate.boundingBox(for: stringRange)
+                        
+                        // Get the normalized CGRect value.
+                        let boundingBox = boxObservation?.boundingBox ?? .zero
+                        
+                        // Convert the rectangle from normalized coordinates to image coordinates.
+                        let rect: CGRect = VNImageRectForNormalizedRect(boundingBox,
+                                                                        Int(image.size.width),
+                                                                        Int(image.size.height))
+                        
+                        let text: String = candidate.string
+                        let recognizedRect: NSDictionary = [
+                            "x": rect.origin.x,
+                            "y": rect.origin.y,
+                            "width": rect.size.width,
+                            "height": rect.size.height,
+                        ]
+                        
+                        let recognition: NSDictionary = [
+                            "text": text,
+                            "recognizedRect": recognizedRect,
+                        ]
+                        
+                        recognitions.append(recognition)
                     }
-                    result(text)
+                    
+                    let resultData: NSDictionary = [
+                        "recognitions": recognitions
+                    ]
+                    result(resultData)
                 }
             })
             request.recognitionLanguages = ["zh-Hans"]

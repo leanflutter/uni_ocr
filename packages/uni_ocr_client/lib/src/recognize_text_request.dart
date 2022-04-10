@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-class DetectTextRequest {
+class RecognizeTextRequest {
   final String imagePath;
 
   String _base64Image;
@@ -15,7 +15,7 @@ class DetectTextRequest {
     return _base64Image;
   }
 
-  DetectTextRequest({
+  RecognizeTextRequest({
     this.imagePath,
     String base64Image,
   }) {
@@ -24,10 +24,10 @@ class DetectTextRequest {
     }
   }
 
-  factory DetectTextRequest.fromJson(Map<String, dynamic> json) {
+  factory RecognizeTextRequest.fromJson(Map<String, dynamic> json) {
     if (json == null) return null;
 
-    return DetectTextRequest(
+    return RecognizeTextRequest(
       imagePath: json['imagePath'],
     );
   }

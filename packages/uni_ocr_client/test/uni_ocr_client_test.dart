@@ -5,6 +5,6 @@ import 'package:uni_ocr_client/uni_ocr_client.dart';
 void main() {
   test('adds one to input values', () {
     final client = UniOcrClient(DefaultUniOcrClientAdapter([]));
-    client.firstEngine.detectText(DetectTextRequest());
+    client.firstEngine.recognizeText(RecognizeTextRequest());
   });
 }

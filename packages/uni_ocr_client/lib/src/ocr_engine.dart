@@ -1,5 +1,5 @@
-import 'detect_text_request.dart';
-import 'detect_text_response.dart';
+import 'recognize_text_request.dart';
+import 'recognize_text_response.dart';
 
 class OcrEngineConfig {
   final String identifier;
@@ -55,7 +55,7 @@ abstract class OcrEngine {
 
   Future<bool> isSupportedOnCurrentPlatform() => Future.value(true);
 
-  Future<DetectTextResponse> detectText(DetectTextRequest request);
+  Future<RecognizeTextResponse> recognizeText(RecognizeTextRequest request);
 
   Map<String, dynamic> toJson() {
     return {

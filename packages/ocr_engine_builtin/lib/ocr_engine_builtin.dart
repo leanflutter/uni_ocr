@@ -1,5 +1,7 @@
 library ocr_engine_builtin;
 
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
@@ -21,19 +23,19 @@ class BuiltInOcrEngine extends OcrEngine {
   }
 
   @override
-  Future<DetectTextResponse> detectText(DetectTextRequest request) async {
+  Future<RecognizeTextResponse> recognizeText(
+      RecognizeTextRequest request) async {
     final Map<String, dynamic> arguments = {
       'base64Image': request.getBase64Image(),
     };
-    final String? text = await _channel.invokeMethod(
-      'detectText',
+    final Map<dynamic, dynamic> resultData = await _channel.invokeMethod(
+      'recognizeText',
       arguments,
     );
 
-    DetectTextResponse detectTextResponse = DetectTextResponse(
-      text: text,
-    );
+    RecognizeTextResponse recognizeTextResponse =
+        RecognizeTextResponse.fromJson(Map<String, dynamic>.from(resultData));
 
-    return detectTextResponse;
+    return recognizeTextResponse;
   }
 }
