@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:bot_toast/bot_toast.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:preference_list/preference_list.dart';
 import 'package:screen_capturer/screen_capturer.dart';
@@ -10,19 +9,25 @@ import 'package:ocr_engine_builtin/ocr_engine_builtin.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final BuiltInOcrEngine _builtInOcrEngine =
-      BuiltInOcrEngine(OcrEngineConfig());
+  final BuiltInOcrEngine _builtInOcrEngine = BuiltInOcrEngine(
+    OcrEngineConfig(
+      identifier: '',
+      type: kOcrEngineTypeBuiltIn,
+      name: 'builtin',
+      option: {},
+    ),
+  );
 
   bool _isAccessAllowed = false;
-  CapturedData _lastCapturedData;
-  RecognizeTextResponse _recognizeTextResponse;
+  CapturedData? _lastCapturedData;
+  RecognizeTextResponse? _recognizeTextResponse;
 
   @override
   void initState() {
@@ -101,7 +106,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             margin: const EdgeInsets.only(top: 20),
             child: Text(
-              _recognizeTextResponse.text ?? '',
+              _recognizeTextResponse?.text ?? '',
             ),
           ),
         if (_lastCapturedData != null && _lastCapturedData?.imagePath != null)
@@ -110,7 +115,7 @@ class _HomePageState extends State<HomePage> {
             width: 400,
             height: 400,
             child: Image.file(
-              File(_lastCapturedData.imagePath),
+              File(_lastCapturedData!.imagePath!),
             ),
           ),
       ],

@@ -11,23 +11,19 @@ class OcrEngineConfig {
   String get shortId => identifier.substring(0, 4);
 
   OcrEngineConfig({
-    this.identifier,
-    this.type,
-    this.name,
-    this.option,
+    required this.identifier,
+    required this.type,
+    required this.name,
+    required this.option,
     this.disabled = false,
   });
 
   factory OcrEngineConfig.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-
     return OcrEngineConfig(
       identifier: json['identifier'],
       type: json['type'],
       name: json['name'],
-      option: json['option'] != null
-          ? Map<String, dynamic>.from(json['option'])
-          : null,
+      option: Map<String, dynamic>.from(json['option'] ?? {}),
       disabled: json['disabled'] ?? false,
     );
   }
@@ -37,7 +33,7 @@ class OcrEngineConfig {
       'identifier': identifier,
       'type': type,
       'option': option,
-      'disabled': disabled ?? false,
+      'disabled': disabled,
     };
   }
 }
@@ -49,7 +45,7 @@ abstract class OcrEngine {
   String get type => config.type;
   String get name => config.name;
   Map<String, dynamic> get option => config.option;
-  bool get disabled => config.disabled ?? false;
+  bool get disabled => config.disabled;
 
   OcrEngine(this.config);
 

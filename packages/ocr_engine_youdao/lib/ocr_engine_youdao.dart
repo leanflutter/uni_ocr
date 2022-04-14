@@ -34,8 +34,11 @@ class YoudaoOcrEngine extends OcrEngine {
 
   @override
   Future<RecognizeTextResponse> recognizeText(
-      RecognizeTextRequest request) async {
-    RecognizeTextResponse recognizeTextResponse = RecognizeTextResponse();
+    RecognizeTextRequest request,
+  ) async {
+    RecognizeTextResponse recognizeTextResponse = RecognizeTextResponse(
+      text: '',
+    );
 
     String base64Image = request.getBase64Image();
     String input = base64Image;

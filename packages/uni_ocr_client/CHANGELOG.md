@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Support null-safety.
+
 ## 0.0.3
 
 * `OcrEngine` change `isSupportedOnCurrentPlatform` attribute to method.

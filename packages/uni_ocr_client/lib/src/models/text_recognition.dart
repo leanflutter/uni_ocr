@@ -2,27 +2,31 @@ import 'recognized_rect.dart';
 
 class TextRecognition {
   String text;
-  RecognizedRect recognizedRect;
+  RecognizedRect? recognizedRect;
 
   TextRecognition({
-    this.text,
+    required this.text,
     this.recognizedRect,
   });
 
   factory TextRecognition.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
+    RecognizedRect? recognizedRect;
+    if (json['RecognizedRect'] == null) {
+      recognizedRect = RecognizedRect.fromJson(
+        Map<String, dynamic>.from(json['recognizedRect']),
+      );
+    }
 
     return TextRecognition(
       text: json['text'],
-      recognizedRect: RecognizedRect.fromJson(
-          Map<String, dynamic>.from(json['recognizedRect'])),
+      recognizedRect: recognizedRect,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'text': text,
-      'recognizedRect': recognizedRect.toJson(),
+      'recognizedRect': recognizedRect?.toJson(),
     };
   }
 }

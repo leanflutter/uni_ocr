@@ -1,17 +1,15 @@
 name: uni_ocr
-description: ''
-version: 0.0.1
+description: A universal ocr client.
+version: 0.1.0
 homepage: https://github.com/biyidev/uni_ocr
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  ocr_engine_builtin:
-    path: ../ocr_engine_builtin
-  ocr_engine_youdao:
-    path: ../ocr_engine_youdao
-  uni_ocr_client: ^0.0.3
+  ocr_engine_builtin: ^0.1.0
+  ocr_engine_youdao: ^0.1.0
+  uni_ocr_client: ^0.1.0
 
 dev_dependencies:
   test: ^1.0.0

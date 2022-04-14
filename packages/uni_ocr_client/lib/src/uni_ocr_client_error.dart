@@ -3,8 +3,8 @@ class UniOcrClientError implements Exception {
   final String message;
 
   UniOcrClientError({
-    this.code,
-    this.message,
+    required this.code,
+    required this.message,
   });
 
   Map<String, dynamic> toJson() {
