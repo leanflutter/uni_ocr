@@ -1,0 +1,10 @@
+env: production
+authEnabled: true
+authKey:
+ocrEngines:
+  - type: youdao
+    name: Youdao
+    identifier:
+    option:
+      appKey:
+      appSecret:
