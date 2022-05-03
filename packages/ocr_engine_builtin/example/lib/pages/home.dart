@@ -17,12 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final BuiltInOcrEngine _builtInOcrEngine = BuiltInOcrEngine(
-    OcrEngineConfig(
-      identifier: '',
-      type: kOcrEngineTypeBuiltIn,
-      name: 'builtin',
-      option: {},
-    ),
+    identifier: 'builtin',
+    option: {},
   );
 
   bool _isAccessAllowed = false;

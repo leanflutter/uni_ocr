@@ -25,12 +25,15 @@ class YoudaoOcrEngine extends OcrEngine {
     _kEngineOptionKeyAppSecret,
   ];
 
-  YoudaoOcrEngine(OcrEngineConfig config) : super(config);
+  YoudaoOcrEngine({
+    required String identifier,
+    Map<String, dynamic>? option,
+  }) : super(identifier: identifier, option: option);
 
   String get type => kOcrEngineTypeYoudao;
 
-  String get _optionAppKey => option[_kEngineOptionKeyAppKey];
-  String get _optionAppSecret => option[_kEngineOptionKeyAppSecret];
+  String get _optionAppKey => option?[_kEngineOptionKeyAppKey];
+  String get _optionAppSecret => option?[_kEngineOptionKeyAppSecret];
 
   @override
   Future<RecognizeTextResponse> recognizeText(

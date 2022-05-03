@@ -10,7 +10,10 @@ class BuiltInOcrEngine extends OcrEngine {
 
   static List<String> optionKeys = [];
 
-  BuiltInOcrEngine(OcrEngineConfig config) : super(config);
+  BuiltInOcrEngine({
+    required String identifier,
+    Map<String, dynamic>? option,
+  }) : super(identifier: identifier, option: option);
 
   @override
   String get type => kOcrEngineTypeBuiltIn;
