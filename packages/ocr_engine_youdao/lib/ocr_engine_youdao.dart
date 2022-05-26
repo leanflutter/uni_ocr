@@ -6,6 +6,8 @@ import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
+import 'youdao_api_known_errors.dart';
+
 const String kOcrEngineTypeYoudao = 'youdao';
 
 const String _kEngineOptionKeyAppKey = 'appKey';
@@ -32,8 +34,8 @@ class YoudaoOcrEngine extends OcrEngine {
 
   String get type => kOcrEngineTypeYoudao;
 
-  String get _optionAppKey => option?[_kEngineOptionKeyAppKey];
-  String get _optionAppSecret => option?[_kEngineOptionKeyAppSecret];
+  String get _optionAppKey => option?[_kEngineOptionKeyAppKey] ?? '';
+  String get _optionAppSecret => option?[_kEngineOptionKeyAppSecret] ?? '';
 
   @override
   Future<RecognizeTextResponse> recognizeText(
@@ -73,6 +75,18 @@ class YoudaoOcrEngine extends OcrEngine {
 
     var response = await http.post(uri, body: body);
     Map<String, dynamic> data = json.decode(utf8.decode(response.bodyBytes));
+
+    if (data['errorCode'] != null) {
+      String errorCode = data['errorCode'];
+      String errorMessage = 'ErrorCode: $errorCode';
+      if (youdaoApiKnownErrors.containsKey(errorCode)) {
+        errorMessage = youdaoApiKnownErrors[errorCode]!;
+      }
+      throw UniOcrClientError(
+        code: errorCode,
+        message: errorMessage,
+      );
+    }
 
     if (data['Result'] != null) {
       var lines = data['Result']['regions'][0]['lines'];
