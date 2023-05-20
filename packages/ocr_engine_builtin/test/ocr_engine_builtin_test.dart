@@ -1,20 +1,19 @@
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ocr_engine_builtin/ocr_engine_builtin.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('ocr_engine_builtin');
+  // const MethodChannel channel = MethodChannel('ocr_engine_builtin');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
+    // channel.setMockMethodCallHandler((MethodCall methodCall) async {
+    //   return '42';
+    // });
   });
 
   tearDown(() {
-    channel.setMockMethodCallHandler(null);
+    // channel.setMockMethodCallHandler(null);
   });
 
   // test('getPlatformVersion', () async {

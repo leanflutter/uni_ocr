@@ -1,9 +1,6 @@
-import 'recognized_rect.dart';
+import 'package:uni_ocr_client/src/models/recognized_rect.dart';
 
 class TextRecognition {
-  String text;
-  RecognizedRect? recognizedRect;
-
   TextRecognition({
     required this.text,
     this.recognizedRect,
@@ -22,6 +19,8 @@ class TextRecognition {
       recognizedRect: recognizedRect,
     );
   }
+  String text;
+  RecognizedRect? recognizedRect;
 
   Map<String, dynamic> toJson() {
     return {

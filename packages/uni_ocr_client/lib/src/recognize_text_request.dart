@@ -2,6 +2,20 @@ import 'dart:convert';
 import 'dart:io';
 
 class RecognizeTextRequest {
+  RecognizeTextRequest({
+    this.imagePath,
+    String? base64Image,
+  }) {
+    if (base64Image != null) {
+      _base64Image = base64Image;
+    }
+  }
+
+  factory RecognizeTextRequest.fromJson(Map<String, dynamic> json) {
+    return RecognizeTextRequest(
+      imagePath: json['imagePath'],
+    );
+  }
   final String? imagePath;
 
   String? _base64Image;
@@ -13,21 +27,6 @@ class RecognizeTextRequest {
       _base64Image = base64Encode(imageBytes);
     }
     return _base64Image!;
-  }
-
-  RecognizeTextRequest({
-    this.imagePath,
-    String? base64Image,
-  }) {
-    if (base64Image != null) {
-      this._base64Image = base64Image;
-    }
-  }
-
-  factory RecognizeTextRequest.fromJson(Map<String, dynamic> json) {
-    return RecognizeTextRequest(
-      imagePath: json['imagePath'],
-    );
   }
 
   Map<String, dynamic> toJson() {

@@ -2,14 +2,13 @@ import 'dart:convert';
 
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
-
-import '../utils/utils.dart';
-import './ocr_engine_controller.dart';
+import 'package:uni_ocr_api/controllers/ocr_engine_controller.dart';
+import 'package:uni_ocr_api/utils/utils.dart';
 
 export './ocr_engine_controller.dart';
 
 class RootController {
-  OcrEngineController _ocrEngineController = OcrEngineController();
+  final OcrEngineController _ocrEngineController = OcrEngineController();
 
   withMiddleware(Router router) {
     final middleware = createMiddleware(

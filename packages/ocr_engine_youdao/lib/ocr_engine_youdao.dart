@@ -4,9 +4,8 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart' as http;
+import 'package:ocr_engine_youdao/youdao_api_known_errors.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
-
-import 'youdao_api_known_errors.dart';
 
 const String kOcrEngineTypeYoudao = 'youdao';
 
@@ -22,16 +21,17 @@ String _sha256(String data) {
 }
 
 class YoudaoOcrEngine extends OcrEngine {
-  static List<String> optionKeys = [
-    _kEngineOptionKeyAppKey,
-    _kEngineOptionKeyAppSecret,
-  ];
-
   YoudaoOcrEngine({
     required String identifier,
     Map<String, dynamic>? option,
   }) : super(identifier: identifier, option: option);
 
+  static List<String> optionKeys = [
+    _kEngineOptionKeyAppKey,
+    _kEngineOptionKeyAppSecret,
+  ];
+
+  @override
   String get type => kOcrEngineTypeYoudao;
 
   String get _optionAppKey => option?[_kEngineOptionKeyAppKey] ?? '';
@@ -47,14 +47,14 @@ class YoudaoOcrEngine extends OcrEngine {
 
     String base64Image = request.getBase64Image();
     String input = base64Image;
-    if (base64Image.length > 20)
+    if (base64Image.length > 20) {
       input =
           '${base64Image.substring(0, 10)}${base64Image.length}${base64Image.substring(base64Image.length - 10)}';
+    }
 
     final curtime = (DateTime.now().millisecondsSinceEpoch ~/ 1000);
-    final salt = _md5("ocr_engine_youdao");
-    final sign =
-        _sha256('$_optionAppKey$input$salt${curtime}$_optionAppSecret');
+    final salt = _md5('ocr_engine_youdao');
+    final sign = _sha256('$_optionAppKey$input$salt$curtime$_optionAppSecret');
 
     Uri uri = Uri.https('openapi.youdao.com', '/ocrapi');
     Map body = {

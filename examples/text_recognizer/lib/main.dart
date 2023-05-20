@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       ),
       builder: BotToastInit(),
       navigatorObservers: [BotToastNavigatorObserver()],
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

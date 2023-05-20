@@ -1,4 +1,4 @@
-import './config.dart';
+import 'package:uni_ocr_api/utils/config.dart';
 
 export './config.dart';
 export './json_response.dart';

@@ -8,7 +8,7 @@ class JsonResponse extends Response {
     int statusCode, {
     Object? body,
     Map<String, Object>? headers = const {
-      HttpHeaders.contentTypeHeader: "application/json",
+      HttpHeaders.contentTypeHeader: 'application/json',
     },
     Encoding? encoding,
     Map<String, Object>? context,

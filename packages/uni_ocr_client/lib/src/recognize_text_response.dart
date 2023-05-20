@@ -1,9 +1,6 @@
-import 'models/text_recognition.dart';
+import 'package:uni_ocr_client/src/models/text_recognition.dart';
 
 class RecognizeTextResponse {
-  String text;
-  List<TextRecognition>? recognitions;
-
   RecognizeTextResponse({
     required this.text,
     this.recognitions,
@@ -21,10 +18,13 @@ class RecognizeTextResponse {
     }
 
     return RecognizeTextResponse(
-      text: json['text'] ?? (recognitions ?? []).map((e) => e.text).join(" "),
+      text: json['text'] ?? (recognitions ?? []).map((e) => e.text).join(' '),
       recognitions: recognitions,
     );
   }
+
+  String text;
+  List<TextRecognition>? recognitions;
 
   Map<String, dynamic> toJson() {
     return {

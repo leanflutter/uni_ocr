@@ -1,4 +1,20 @@
 class RecognizedRect {
+  RecognizedRect({
+    required this.x,
+    required this.y,
+    required this.width,
+    required this.height,
+  });
+
+  factory RecognizedRect.fromJson(Map<String, dynamic> json) {
+    return RecognizedRect(
+      x: json['x'],
+      y: json['y'],
+      width: json['width'],
+      height: json['height'],
+    );
+  }
+
   /// x 坐标。
   num x;
 
@@ -22,22 +38,6 @@ class RecognizedRect {
 
   /// 左坐标值（与 x 具有相同的值，如果 width 为负值，则为 x + width 的值）。
   num? left;
-
-  RecognizedRect({
-    required this.x,
-    required this.y,
-    required this.width,
-    required this.height,
-  });
-
-  factory RecognizedRect.fromJson(Map<String, dynamic> json) {
-    return RecognizedRect(
-      x: json['x'],
-      y: json['y'],
-      width: json['width'],
-      height: json['height'],
-    );
-  }
 
   Map<String, dynamic> toJson() {
     return {

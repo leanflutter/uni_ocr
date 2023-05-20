@@ -1,16 +1,16 @@
 class UniOcrClientError implements Exception {
-  final String code;
-  final String message;
-
   UniOcrClientError({
     required this.code,
     required this.message,
   });
 
+  final String code;
+  final String message;
+
   Map<String, dynamic> toJson() {
     return {
-      'code': this.code,
-      'message': this.message,
+      'code': code,
+      'message': message,
     }..removeWhere((key, value) => value == null);
   }
 }
