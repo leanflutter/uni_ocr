@@ -220,14 +220,14 @@ packages:
       path: "../ocr_engine_builtin"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.1.1"
   ocr_engine_youdao:
     dependency: "direct main"
     description:
       path: "../ocr_engine_youdao"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.1.1"
   package_config:
     dependency: transitive
     description:
@@ -399,7 +399,7 @@ packages:
       path: "../uni_ocr_client"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.1.1"
   vector_math:
     dependency: transitive
     description:

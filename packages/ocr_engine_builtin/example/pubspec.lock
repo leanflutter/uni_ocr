@@ -145,7 +145,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.1.1"
   path:
     dependency: transitive
     description:
@@ -309,7 +309,7 @@ packages:
       path: "../../uni_ocr_client"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "0.1.1"
   vector_math:
     dependency: transitive
     description:

@@ -1,6 +1,6 @@
 name: uni_ocr
 description: A universal ocr client.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/biyidev/uni_ocr
 
 environment:
@@ -10,9 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ocr_engine_builtin: ^0.1.0
-  ocr_engine_youdao: ^0.1.0
-  uni_ocr_client: ^0.1.0
+  ocr_engine_builtin: ^0.1.1
+  ocr_engine_youdao: ^0.1.1
+  uni_ocr_client: ^0.1.1
 
 dev_dependencies:
   test: ^1.0.0
