@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:uni_translate_client/uni_translate_client.dart';
 import 'package:yaml/yaml.dart';
 
 class OcrEngineConfig {
@@ -68,18 +67,10 @@ class Config {
         return OcrEngineConfig.fromJson(j);
       }).toList();
     }
-    if (json['translationEngines'] != null) {
-      Iterable l = json['translationEngines'] as List;
-      translationEngines = l.map((item) {
-        Map<String, dynamic> j = Map<String, dynamic>.from(item);
-        return TranslationEngineConfig.fromJson(j);
-      }).toList();
-    }
   }
 
   late String env;
   late String authKey;
   late bool authEnabled;
   List<OcrEngineConfig> ocrEngines = [];
-  List<TranslationEngineConfig> translationEngines = [];
 }
