@@ -76,7 +76,7 @@ class YoudaoOcrEngine extends OcrEngine {
     var response = await http.post(uri, body: body);
     Map<String, dynamic> data = json.decode(utf8.decode(response.bodyBytes));
 
-    if (data['errorCode'] != null) {
+    if (data['errorCode'] != null && data['errorCode'] != '0') {
       String errorCode = data['errorCode'];
       String errorMessage = 'ErrorCode: $errorCode';
       if (youdaoApiKnownErrors.containsKey(errorCode)) {
