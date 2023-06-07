@@ -8,8 +8,8 @@ environment:
 
 dependencies:
   ocr_engine_youdao: ^0.1.1
-  shelf: ^1.1.0
-  shelf_router: ^1.1.2
+  shelf: ^1.4.0
+  shelf_router: ^1.1.4
   uni_ocr_client: ^0.1.0
   yaml: ^3.1.0
 

@@ -61,8 +61,7 @@ class OcrEngineController {
     final router = Router();
     router.get('/', getEngines);
     router.get('/<identifier>', getEngine);
-    router.get('/<identifier>/recognizeText', recognizeText);
-    router.get('/<identifier>/detectText', recognizeText);
+    router.post('/<identifier>/recognizeText', recognizeText);
     return router;
   }
 }
