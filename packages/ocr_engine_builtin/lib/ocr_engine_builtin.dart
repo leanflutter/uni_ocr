@@ -6,14 +6,14 @@ import 'package:uni_ocr_client/uni_ocr_client.dart';
 const String kOcrEngineTypeBuiltIn = 'built_in';
 
 class BuiltInOcrEngine extends OcrEngine {
-  static const MethodChannel _channel = MethodChannel('ocr_engine_builtin');
-
-  static List<String> optionKeys = [];
-
   BuiltInOcrEngine({
     required String identifier,
     Map<String, dynamic>? option,
   }) : super(identifier: identifier, option: option);
+
+  static const MethodChannel _channel = MethodChannel('ocr_engine_builtin');
+
+  static List<String> optionKeys = [];
 
   @override
   String get type => kOcrEngineTypeBuiltIn;
