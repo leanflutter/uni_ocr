@@ -3,6 +3,8 @@ library ocr_engine_builtin;
 import 'package:ocr_engine_builtin/ocr_engine_builtin_platform_interface.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
+export './ocr_engine_builtin_plugin_windows.dart';
+
 const String kOcrEngineTypeBuiltIn = 'built_in';
 
 class BuiltInOcrEngine extends OcrEngine {

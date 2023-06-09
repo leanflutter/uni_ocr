@@ -12,6 +12,9 @@ dependencies:
     sdk: flutter
   plugin_platform_interface: ^2.0.2
   uni_ocr_client: ^0.1.1
+  windows_graphics: ^0.0.3
+  windows_media: ^0.0.2
+  windows_storage: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +25,6 @@ flutter:
     platforms:
       macos:
         pluginClass: OcrEngineBuiltinPlugin
+      windows:
+        dartPluginClass: OcrEngineBuiltinPluginWindows
+        fileName: ocr_engine_builtin_plugin_windows.dart
