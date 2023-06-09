@@ -2,7 +2,8 @@ PODS:
   - FlutterMacOS (1.0.0)
   - ocr_engine_builtin (0.0.1):
     - FlutterMacOS
-  - path_provider_macos (0.0.1):
+  - path_provider_foundation (0.0.1):
+    - Flutter
     - FlutterMacOS
   - screen_capturer (0.1.0):
     - FlutterMacOS
@@ -10,7 +11,7 @@ PODS:
 DEPENDENCIES:
   - FlutterMacOS (from `Flutter/ephemeral`)
   - ocr_engine_builtin (from `Flutter/ephemeral/.symlinks/plugins/ocr_engine_builtin/macos`)
-  - path_provider_macos (from `Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos`)
+  - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
   - screen_capturer (from `Flutter/ephemeral/.symlinks/plugins/screen_capturer/macos`)
 
 EXTERNAL SOURCES:
@@ -18,17 +19,17 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral
   ocr_engine_builtin:
     :path: Flutter/ephemeral/.symlinks/plugins/ocr_engine_builtin/macos
-  path_provider_macos:
-    :path: Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos
+  path_provider_foundation:
+    :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
   screen_capturer:
     :path: Flutter/ephemeral/.symlinks/plugins/screen_capturer/macos
 
 SPEC CHECKSUMS:
-  FlutterMacOS: 57701585bf7de1b3fc2bb61f6378d73bbdea8424
-  ocr_engine_builtin: 99c65f8f4a156830ceaf0da86940610fefe50f50
-  path_provider_macos: 160cab0d5461f0c0e02995469a98f24bdb9a3f1f
-  screen_capturer: 696de78ce7beff63eecf8aa709f839985a7836d7
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+  ocr_engine_builtin: 005291875d6001584de87c940d650fe1e1e68bfb
+  path_provider_foundation: eaf5b3e458fc0e5fbb9940fb09980e853fe058b8
+  screen_capturer: 835bdb791b6e54d01257961c2e6ccd20a57ddc17
 
-PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
+PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

@@ -5,12 +5,12 @@ homepage: https://github.com/biyidev/uni_ocr/tree/master/packages/ocr_engine_bui
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.10.0"
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
+  plugin_platform_interface: ^2.0.2
   uni_ocr_client: ^0.1.1
 
 dev_dependencies:

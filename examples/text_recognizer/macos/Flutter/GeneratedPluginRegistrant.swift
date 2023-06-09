@@ -6,7 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import ocr_engine_builtin
-import path_provider_macos
+import path_provider_foundation
 import screen_capturer
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

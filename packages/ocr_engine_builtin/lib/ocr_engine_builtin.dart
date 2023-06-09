@@ -1,6 +1,6 @@
 library ocr_engine_builtin;
 
-import 'package:flutter/services.dart';
+import 'package:ocr_engine_builtin/ocr_engine_builtin_platform_interface.dart';
 import 'package:uni_ocr_client/uni_ocr_client.dart';
 
 const String kOcrEngineTypeBuiltIn = 'built_in';
@@ -11,32 +11,18 @@ class BuiltInOcrEngine extends OcrEngine {
     Map<String, dynamic>? option,
   }) : super(identifier: identifier, option: option);
 
-  static const MethodChannel _channel = MethodChannel('ocr_engine_builtin');
-
   static List<String> optionKeys = [];
 
   @override
   String get type => kOcrEngineTypeBuiltIn;
 
   @override
-  Future<bool> isSupportedOnCurrentPlatform() async {
-    return await _channel.invokeMethod('isSupportedOnCurrentPlatform');
+  Future<bool> isSupportedOnCurrentPlatform() {
+    return OcrEngineBuiltinPlatform.instance.isSupportedOnCurrentPlatform();
   }
 
   @override
-  Future<RecognizeTextResponse> recognizeText(
-      RecognizeTextRequest request) async {
-    final Map<String, dynamic> arguments = {
-      'base64Image': request.getBase64Image(),
-    };
-    final Map<dynamic, dynamic> resultData = await _channel.invokeMethod(
-      'recognizeText',
-      arguments,
-    );
-
-    RecognizeTextResponse recognizeTextResponse =
-        RecognizeTextResponse.fromJson(Map<String, dynamic>.from(resultData));
-
-    return recognizeTextResponse;
+  Future<RecognizeTextResponse> recognizeText(RecognizeTextRequest request) {
+    return OcrEngineBuiltinPlatform.instance.recognizeText(request);
   }
 }
